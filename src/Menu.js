@@ -1,3 +1,5 @@
+import { isClickableInput } from "@testing-library/user-event/dist/utils";
+
 function Menu() {
   return (
     <div className="menu">
@@ -10,6 +12,7 @@ function Menu() {
         in the All Apps plan plus generative AI tools powered by Adobe Firefly.
       </p>
       <button>Free Trial</button>
+
       <a href="">See all plans </a>
       <div className="brick">
         <div className="left-contain">

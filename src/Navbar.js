@@ -1,33 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import NavItem from "./NavItem";
 
 const Navbar = () => {
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleItemClick = (itemName) => {
+    setActiveItem(itemName === activeItem ? null : itemName);
+  };
+
   return (
-    <nav className="navbar">
-      <div>
-        <img src="pic/logo.jpg" alt="logo" className="logo" />
-      </div>
-      <div>
-        <a href="/" className="link">
-          Creativity & Design
-          <span className="arrow"></span>
-        </a>
-        <a href="/products" className="link">
-          PDF & E-signatures
-          <span className="arrow"></span>
-        </a>
-        <a href="/downloads" className="link">
-          Marketing & Commerce
-          <span className="arrow"></span>
-        </a>
-        <a href="/support" className="link">
-          Help & Support
-          <span className="arrow"></span>
-        </a>
-        <a href="/sign-in" className="sign-in-link">
-          Sign In
-        </a>
-      </div>
-    </nav>
+    <div className="navbar">
+      <NavItem
+        itemName="Creativity and Design"
+        activeItem={activeItem}
+        onItemClick={handleItemClick}
+      />
+      <NavItem
+        itemName="PDF E-Signatures"
+        activeItem={activeItem}
+        onItemClick={handleItemClick}
+      />
+      <NavItem
+        itemName="Marketing E-Commerce"
+        activeItem={activeItem}
+        onItemClick={handleItemClick}
+      />
+      <NavItem
+        itemName="Help and Support"
+        activeItem={activeItem}
+        onItemClick={handleItemClick}
+      />
+      <NavItem
+        itemName="Sign in"
+        activeItem={activeItem}
+        onItemClick={handleItemClick}
+      />
+    </div>
   );
 };
 
